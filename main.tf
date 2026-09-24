@@ -21,9 +21,12 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [var.existing_security_group_id]
   associate_public_ip_address = var.associate_public_ip
   key_name                    = var.key_name
+  count                       = var.instance_count
 
   tags = {
-    Name = "my-first-terraform-instance"
+  # Name = var.instance_prefix
+  // Name = "my-terraform-instance"
+    Name = "${var.instance_prefix}-${count.index+1}"
   }
 }
 

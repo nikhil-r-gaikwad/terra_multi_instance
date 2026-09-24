@@ -60,3 +60,7 @@ variable "instance_prefix" {
   type        = string
   default     = "app"
 }
+
+variable "bucket_name" {
+  type = string
+}
